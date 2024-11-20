@@ -1,0 +1,30 @@
+package oregonTrail;
+
+public class StatsCheck { 
+	public static void variables(String[] args) {
+		if (OregonTrail.thirst>100) {
+	    	OregonTrail.thirst=100;
+	    }
+	    if (OregonTrail.energy>100) {
+	    	OregonTrail.energy=100;
+	    }
+	    if (OregonTrail.health>100) {
+	    	OregonTrail.health=100;
+	    }
+	    
+	    if (OregonTrail.thirst<0) {
+	    	System.out.println("You didn't drink enough water and died of thirst.");
+	    	System.exit(0);
+	    }
+	    if (OregonTrail.energy<0) {
+	    	System.out.println("You starved to death.");
+	    	System.exit(0);
+	    }
+	    if (OregonTrail.health<0) {
+	    	System.out.println("The Oregon Trail got to you. Your body failed and you died.");
+	    	System.exit(0);
+	    }
+    
+	
+}
+}
