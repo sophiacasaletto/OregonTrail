@@ -1,0 +1,16 @@
+package oregonTrail;
+
+public class PlayerStats {
+	public static void printStats(String[] args) {
+    	System.out.println("Your energy is at "+OregonTrail.energy+"%. Your thirst is at "+OregonTrail.thirst+"%. Your health is at "+OregonTrail.health+"%.");
+	}
+	
+	
+	public static void printMaterials(String[] args) {
+    	System.out.println("Your water canister is "+OregonTrail.water+"% full. You have "+OregonTrail.granola+" granola bars. "+"You "+OregonTrail.rope+ " rope.");
+	}
+	
+	public static void quickStats(String[] args) {
+		System.out.println("Energy: "+OregonTrail.energy+"%  Thirst: "+OregonTrail.thirst+"%  Health: "+OregonTrail.health+"%");
+	}
+}
