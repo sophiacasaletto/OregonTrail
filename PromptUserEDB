@@ -1,0 +1,93 @@
+package oregonTrail;
+
+import java.util.Scanner;
+
+public class PromptUserEDB {
+    public static Scanner edbInput = new Scanner(System.in); 
+
+    public static void promptUserEDB(String[] args) {
+        PlayerStats.printStats(args);
+        PlayerStats.printMaterials(args);
+		System.out.println("Account for the fact that you will lose 30% of your energy and 30% of your thirst each night.");
+        System.out.println("\nWould you like to eat, drink, both, or neither? (Type E/D/B/N)");
+
+    
+        	
+		Scanner edbInput = new Scanner(System.in);  
+        String edb = edbInput.nextLine();
+        if (edb.equals("E")||edb.equals("e")) {
+        	System.out.println("How many granola bars would you like to eat? (Your energy is at "+OregonTrail.energy+"%, you have "+OregonTrail.granola+" granola bars,\nand each granola bar replenishes 25% of your energy.)");
+        	int granolaCount = edbInput.nextInt();
+        	if (granolaCount>OregonTrail.granola) {
+        		System.out.println("You tried to cheat the system. God was watching and gave you scurvy. You died immediately.");
+        		System.exit(0);
+        	}
+        	OregonTrail.granola=OregonTrail.granola-granolaCount;
+        	OregonTrail.energy=OregonTrail.energy+(granolaCount*25);
+        	
+        	if (OregonTrail.energy>100) {
+        		OregonTrail.energy=100;
+        	}
+        	System.out.println("Successfully ate "+granolaCount+" granola bars. Your energy is now at "+OregonTrail.energy+"%.");
+        	//edbInput.close();
+        } else if (edb.equals("D")||edb.equals("d")) {
+        	System.out.println("How much of your water would you like to drink? (Your thirst is at "+OregonTrail.thirst+"%, you have "+OregonTrail.water+"% of your water left, \nand one full water canister replenishes 100% of your thirst. (Type the % of your water you want to drink.)");
+        	int waterCount = edbInput.nextInt();
+        	if (waterCount>OregonTrail.water) {
+        		System.out.println("You tried to cheat the system. God was watching and gave you scurvy. You died immediately.");
+        		System.exit(0);
+        }	
+    	
+        	OregonTrail.thirst=OregonTrail.thirst+(waterCount);
+        	OregonTrail.water=OregonTrail.water-waterCount;
+        	if (OregonTrail.thirst>100) {
+        		OregonTrail.thirst=100;
+        	}
+        	
+        	System.out.println("Successfully drank "+waterCount+"% of your water. Your thirst is now at "+OregonTrail.thirst+"%.");
+        	//edbInput.close();
+        } else if (edb.equals("B")||edb.equals("b")) {
+        	System.out.println("How many granola bars would you like to eat? (Your energy is at "+OregonTrail.energy+"%, you have "+OregonTrail.granola+" granola bars,\nand each granola bar replenishes 25% of your energy.)");
+        	int granolaCount = edbInput.nextInt();
+        	if (granolaCount>OregonTrail.granola) {
+        		System.out.println("You tried to cheat the system. God was watching and gave you scurvy. You died immediately.");
+        		System.exit(0);
+        	}
+        	OregonTrail.granola=OregonTrail.granola-granolaCount;
+        	OregonTrail.energy=OregonTrail.energy+(granolaCount*25);
+        	if (OregonTrail.energy>100) {
+        		OregonTrail.energy=100;
+        	}
+        	
+        	System.out.println("Successfully ate "+granolaCount+" granola bars. Your energy is now at "+OregonTrail.energy+"%.");
+        	System.out.println("How much of your water would you like to drink? (Your thirst is at "+OregonTrail.thirst+"%, you have "+OregonTrail.water+"% of your water left, \nand one full water canister replenishes 100% of your thirst. (Type the % of your water you want to drink.)");
+        	int waterCount = edbInput.nextInt();
+        	if (waterCount>OregonTrail.water) {
+        		System.out.println("You tried to cheat the system. God was watching and gave you scurvy. You died immediately.");
+        		System.exit(0);
+        	}
+        	OregonTrail.water=OregonTrail.water-waterCount;
+        	OregonTrail.thirst=OregonTrail.thirst+(waterCount);
+        	if (OregonTrail.thirst>100) {
+        		OregonTrail.thirst=100;
+        	}
+        	
+        	System.out.println("Successfully drank "+(waterCount)+"% of your water. Your thirst is now at "+OregonTrail.thirst+"%.");
+        	//edbInput.close();
+        } else if (edb.equals("N")||edb.equals("n")) {
+        	System.out.println("You did not eat or drink.");
+
+        } else System.exit(0);
+        
+    }
+
+	
+    public static void closeInput(String[] args) {
+   	edbInput.close();
+   }
+        
+        
+
+	
+}
+
