@@ -1,0 +1,199 @@
+package oregonTrail;
+
+import java.util.Random;
+
+public class SleepGenerator {
+public static boolean LiveDie=true;
+	public static String day1(int choice) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(100);
+        String result;
+       
+        switch (choice) {
+            case 1: // hut
+                if (randomNumber < 40) { 
+                    result = "There was no one in the hut and you lived.";
+                    OregonTrail.energy=OregonTrail.energy-30;
+                    OregonTrail.thirst=OregonTrail.thirst-30;
+                    OregonTrail.health=100;
+                } 
+                else {
+                    result = "You decrepit fool! There was someone in the hut, and they were not pleased at your intrusion! You died.";
+					LiveDie=false;
+                }
+                break;
+
+            case 2: //ground
+            	OregonTrail.energy=OregonTrail.energy-30;
+                OregonTrail.thirst=OregonTrail.thirst-30;
+                OregonTrail.health=65;
+                result = "You lived.";
+                break;
+
+            case 3: // bush
+            	OregonTrail.energy=OregonTrail.energy-30;
+                OregonTrail.thirst=OregonTrail.thirst-30;
+                OregonTrail.health=90;
+                if (randomNumber < 70) {
+                    result = "You lived. The bush was safe and sheltered you from adverse conditions.";
+                } 
+                else {
+                    result = "Unfortunately, there was an angry stampede of squirrels in the bush. They cut off your circulation. You died.";
+					LiveDie=false;
+                }
+                break;
+
+            default:
+                result = "Invalid choice. Please choose a valid option (1, 2, or 3).";
+				LiveDie=false;
+                break;
+        }
+
+        return result;
+    }
+	public static String day2(int choice) {
+		Random random=new Random();
+		int randomNumber=random.nextInt(100);
+		String result4;
+		
+		switch(choice) {
+			case 1: //bear lair
+				if (randomNumber < 30) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+80;
+	                OregonTrail.water=OregonTrail.water+50;
+					result4="The lair was vacant and you lived.";
+				}
+				else {
+					result4="The bear was IN ITS LAIR and killed you! You died!";
+					LiveDie=false;
+				}
+				break;
+			case 2: //ground
+            	OregonTrail.energy=OregonTrail.energy-30;
+                OregonTrail.thirst=OregonTrail.thirst-30;
+                OregonTrail.health=OregonTrail.health+15;
+                result4 = "You lived.";
+                break;
+			case 3: //tree
+				if (randomNumber<90) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+40;
+	                OregonTrail.rope="do not have";
+	                result4="You had a fairly good night's rest in the tree.";
+				}
+				else {
+					result4="You fell out of the tree and suffered tremendous brain damage. You died!";
+					LiveDie=false;
+				}
+				break;
+			default:
+				result4="Invalid choice. Please choose a valid option (1, 2, or 3).";
+				LiveDie=false;
+				break;
+		}
+		
+		return result4;
+	}
+	
+	public static String day3(int choice) {
+		Random random=new Random();
+		int randomNumber=random.nextInt(100);
+		String result8;
+		
+		switch(choice) {
+			case 1: //riverbank
+				if (randomNumber < 40) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+70;
+	                OregonTrail.water=OregonTrail.water+50;
+	                StatsCheck.variables(null);
+	                result8="You had a good night's rest on the riverbank.";
+				}
+				else {
+					result8="You had a nightmare in your sleep and rolled into the river, and you drowned.";
+					LiveDie=false;
+				}
+				break;
+			case 2: //ground
+            	OregonTrail.energy=OregonTrail.energy-30;
+                OregonTrail.thirst=OregonTrail.thirst-30;
+                OregonTrail.health=OregonTrail.health+15;
+                StatsCheck.variables(null);
+                result8 = "You lived.";
+                break;
+			case 3: //thorn bush
+				if (randomNumber<70) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+30;
+	                StatsCheck.variables(null);
+	                result8="You rested well in the bush.";
+				}
+				else {
+					result8="You moved around in your sleep and the thorns poked you! You woke up to cuts and bruises.";
+	                OregonTrail.health=OregonTrail.health-30;
+	                StatsCheck.variables(null);
+					LiveDie=false;
+				}
+				break;
+			default:
+				result8="Invalid choice. Please choose a valid option (1, 2, or 3).";
+				LiveDie=false;
+				break;
+		}
+		
+		return result8;
+	}
+	public static String day4(int choice) {
+		Random random=new Random();
+		int randomNumber=random.nextInt(100);
+		String result13;
+		
+		switch(choice) {
+			case 1: //hut
+				if (randomNumber < 40) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+70;
+	                OregonTrail.water=OregonTrail.water+50;
+	                StatsCheck.variables(null);
+	                result13="There was no one inside the hut, and you slept very well.";
+				}
+				else {
+					result13="You decrepit fool! Why would you go into someone else's home? They shot you and you died.";
+					LiveDie=false;
+				}
+				break;
+			case 2: //ground
+            	OregonTrail.energy=OregonTrail.energy-30;
+                OregonTrail.thirst=OregonTrail.thirst-30;
+                OregonTrail.health=OregonTrail.health+15;
+                StatsCheck.variables(null);
+                result13 = "You lived.";
+                break;
+			case 3: //hole
+				if (randomNumber<70) {
+					OregonTrail.energy=OregonTrail.energy-30;
+	                OregonTrail.thirst=OregonTrail.thirst-30;
+	                OregonTrail.health=OregonTrail.health+30;
+	                StatsCheck.variables(null);
+	                result13="You rested well in the hole.";
+				}
+				else {
+					result13="Somehow, while you were sleeping, soil from the ground filled the hole. You suffocated and died.";
+	                LiveDie=false;
+				}
+				break;
+			default:
+				result13="Invalid choice. Please choose a valid option (1, 2, or 3).";
+				LiveDie=false;
+				break;
+		}
+		
+		return result13;
+	}
+}
